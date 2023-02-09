@@ -22,6 +22,10 @@ Route::get('/myHome', function () {
     return view('pages.myHome');
 })->middleware(['auth', 'verified'])->name('myHome');
 
+// rotta per project show 
+Route::get('/project/show/{project}', [MainController::class, 'projectShow'])
+    ->name('project.show');
+
 
 
 Route::get('/dashboard', function () {

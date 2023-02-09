@@ -12,7 +12,12 @@ class MainController extends Controller
         $projects = Project::all();
         return view('pages.home', compact('projects'));
     }
+    // funzione per mostrare la pagina di ogni progetto
+    public function projectShow(Project $project)
+    {
 
+        return view('pages.project-show', compact('project'));
+    }
     public function myHome()
     {
         return view('pages.myHome');

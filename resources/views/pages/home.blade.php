@@ -6,13 +6,9 @@
         @foreach ($projects as $project)
             <li>{{$project -> main_image}}
                 <br>
-                {{$project -> name}}
-                <br>
-                Descrizione: {{$project -> description}}
-                <br>
-                Data Pubbilcazione: {{$project -> release_date}}
-                <br>
-                Link Github: {{$project -> repo_link}}
+                <a href="{{ route('project.show', $project) }}">
+                    {{ $project -> name }}
+                </a>
                 <br>--------------------- <br>
             </li>
         @endforeach
