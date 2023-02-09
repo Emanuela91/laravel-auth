@@ -50,10 +50,6 @@
                         </li>
                     </ul>
 
-                    <div class="text-danger bold">
-                        Benvenuto nella tua pagina personale:
-                    </div>
-
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->

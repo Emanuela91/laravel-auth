@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-           Benvenuto nella tua paginaa personale!
+           Benvenuto nella tua Dashboard!
         </div>
 
     </div>
