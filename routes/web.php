@@ -17,6 +17,13 @@ use App\Http\Controllers\MainController;
 
 Route::get('/', [MainController::class, 'home']);
 
+// rotta protetta per my Home 
+Route::get('/myHome', function () {
+    return view('pages.myHome');
+})->middleware(['auth', 'verified'])->name('myHome');
+
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
