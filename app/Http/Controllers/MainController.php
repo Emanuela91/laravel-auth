@@ -37,11 +37,11 @@ class MainController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required|string|min:3|max:64|unique:projects',
+            'name' => 'required|string|min:3|max:64|unique:projects,name',
             'description' => 'nullable|string|',
-            'main_image' => 'required|string|unique:projects',
+            'main_image' => 'required|string|unique:projects,main_image',
             'release_date' => 'required|date|before:today',
-            'repo_link' => 'required|string|unique:projects',
+            'repo_link' => 'required|string|unique:projects,repo_link',
 
         ]);
 
@@ -61,6 +61,21 @@ class MainController extends Controller
     {
         return view('pages.edit', compact('project'));
     }
+    public function update(Request $request, Project $project)
+    {
+        $data = $request->validate([
+            'name' => 'required|string|min:3|max:64|unique:projects,name' . $project->id,
+            'description' => 'nullable|string|',
+            'main_image' => 'required|string|unique:projects,main_image' . $project->id,
+            'release_date' => 'required|date|before:today',
+            'repo_link' => 'required|string|unique:projects,repo_link' . $project->id,
 
+        ]);
+        $project->update($data);
+        $project->save();
+
+        return redirect()->route('home');
+
+    }
 
 }
