@@ -64,11 +64,11 @@ class MainController extends Controller
     public function update(Request $request, Project $project)
     {
         $data = $request->validate([
-            'name' => 'required|string|min:3|max:64|unique:projects,name' . $project->id,
+            'name' => 'required|string|min:3|max:64|unique:projects,name,' . $project->id,
             'description' => 'nullable|string|',
-            'main_image' => 'required|string|unique:projects,main_image' . $project->id,
+            'main_image' => 'required|string|unique:projects,main_image,' . $project->id,
             'release_date' => 'required|date|before:today',
-            'repo_link' => 'required|string|unique:projects,repo_link' . $project->id,
+            'repo_link' => 'required|string|unique:projects,repo_link,' . $project->id,
 
         ]);
         $project->update($data);
