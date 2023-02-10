@@ -2,7 +2,7 @@
 
 {{-- form per creare il nuovo progetto  --}}
 @section('content')
-    {{-- enctype per prendere le immagini dal DB --}}
+    {{-- enctype per aggiungere immagini--}}
     <form action="{{route('admin.project.create')}} " method="POST" enctype="multipart/form-data">
     @csrf
 

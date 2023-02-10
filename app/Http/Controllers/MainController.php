@@ -39,10 +39,10 @@ class MainController extends Controller
         $data = $request->validate([
             'name' => 'required|string|min:3|max:64|unique:projects,name',
             'description' => 'nullable|string|',
-            'main_image' => 'required|string|unique:projects,main_image',
+            // cabiata la validazione per avere immagini non superiori ai 2mb e con determinate estensioni
+            'main_image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             'release_date' => 'required|date|before:today',
             'repo_link' => 'required|string|unique:projects,repo_link',
-
         ]);
 
         $project = Project::create($data);
