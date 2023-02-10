@@ -10,5 +10,10 @@
         <br>
         Link Github: {{$project -> repo_link}}
         <br>--------------------- <br>
+        @auth
+        <a href="">Correggi</a>
+        <br>
+        <a href="{{route('admin.project.delete', $project)}} ">Cancella</a>
+        @endauth
     </li>
 @endsection

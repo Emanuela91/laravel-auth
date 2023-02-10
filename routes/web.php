@@ -37,6 +37,10 @@ Route::middleware([])
             ->name('project.create');
         Route::post('/project/create', [MainController::class, 'store'])
             ->name('project.store');
+
+        // rotta per cancellare
+        Route::get('/project/delete/{project}', [MainController::class, 'delete'])
+            ->name('project.delete');
     });
 
 Route::get('/dashboard', function () {

@@ -48,4 +48,11 @@ class MainController extends Controller
         return redirect()->route('project.show', $project);
     }
 
+    public function delete(Project $project)
+    {
+        $project->delete();
+        return redirect()->route('home');
+    }
+
+
 }
