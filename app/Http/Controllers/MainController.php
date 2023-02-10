@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Psy\Command\EditCommand;
 use Symfony\Contracts\Service\Attribute\Required;
 
 class MainController extends Controller
@@ -48,10 +49,17 @@ class MainController extends Controller
         return redirect()->route('project.show', $project);
     }
 
+    // funzione per cancellare
     public function delete(Project $project)
     {
         $project->delete();
         return redirect()->route('home');
+    }
+
+    // funzione per Edit
+    public function edit(Project $project)
+    {
+        return view('pages.edit', compact('project'));
     }
 
 

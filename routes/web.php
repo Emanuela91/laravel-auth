@@ -41,7 +41,14 @@ Route::middleware([])
         // rotta per cancellare
         Route::get('/project/delete/{project}', [MainController::class, 'delete'])
             ->name('project.delete');
+
+        // rotta per Edit
+        Route::get('/project/edit/{project}', [MainController::class, 'edit'])
+            ->name('project.edit');
+        Route::post('/project/edit/{project}', [MainController::class, 'update'])
+            ->name('project.update');
     });
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
