@@ -2,7 +2,10 @@
 
 @section('content')
     <h1>Progetti</h1>
-    <a href="{{route}} "></a>
+    
+    <a href="{{route('admin.project.store')}}">
+    Crea un nuovo progetto
+    </a>
     <ul>
         @foreach ($projects as $project)
             <li><img src="{{$project -> main_image}}" alt="">
