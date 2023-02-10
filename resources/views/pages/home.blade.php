@@ -2,7 +2,6 @@
 
 @section('content')
     <h1>Progetti</h1>
-    
     <a href="{{route('admin.project.store')}}">
     Crea un nuovo progetto
     </a>
