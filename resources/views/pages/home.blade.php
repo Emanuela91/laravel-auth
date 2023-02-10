@@ -10,7 +10,8 @@
     @endauth
     <ul>
         @foreach ($projects as $project)
-            <li><img src="{{$project -> main_image}}" alt="">
+        {{-- link per prendere l'immagine dal BE e HTML --}}
+            <li><img class="main-img" src="{{asset('storage/' . $project -> main_image)}}" alt="">
                 <br>
                 <a href="{{ route('project.show', $project) }}">
                     {{ $project -> name }}

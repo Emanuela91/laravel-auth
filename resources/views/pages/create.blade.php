@@ -2,7 +2,8 @@
 
 {{-- form per creare il nuovo progetto  --}}
 @section('content')
-    <form action="{{route('admin.project.create')}} " method="POST">
+    {{-- enctype per prendere le immagini dal DB --}}
+    <form action="{{route('admin.project.create')}} " method="POST" enctype="multipart/form-data">
     @csrf
 
     <label for="name">Nome</label>
@@ -12,7 +13,8 @@
     <textarea name="description"></textarea>
     <br>
     <label for="main_image">Immagine Pricipale</label>
-    <input type="text" name="main_image">
+    {{-- modifico il type da text e file --}}
+    <input type="file" name="main_image">
     <br>
     <label for="release_date">Data Pubblicazione</label>
     <input type="date" name="release_date">

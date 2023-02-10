@@ -27,8 +27,10 @@ Route::get('/myHome', function () {
 Route::get('/project/show/{project}', [MainController::class, 'projectShow'])
     ->name('project.show');
 
-// Route::middleware(['auth', 'verified'])
-Route::middleware([])
+// rotta protetta 
+Route::middleware(['auth', 'verified'])
+    // rotta non protetta 
+// Route::middleware([])
     ->name('admin.')
     ->prefix('admin')
     ->group(function () {
