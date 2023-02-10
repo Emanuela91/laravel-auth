@@ -27,6 +27,13 @@ Route::get('/project/show/{project}', [MainController::class, 'projectShow'])
     ->name('project.show');
 
 
+Route::middleware([])
+    ->name('admin')
+    ->prefix('admin')
+    ->group(function () {
+        Route::get('/project/create', [MainController::class, 'create'])
+            ->name('project.create');
+    });
 
 Route::get('/dashboard', function () {
     return view('dashboard');

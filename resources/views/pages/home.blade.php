@@ -2,9 +2,10 @@
 
 @section('content')
     <h1>Progetti</h1>
+    <a href="{{route}} "></a>
     <ul>
         @foreach ($projects as $project)
-            <li>{{$project -> main_image}}
+            <li><img src="{{$project -> main_image}}" alt="">
                 <br>
                 <a href="{{ route('project.show', $project) }}">
                     {{ $project -> name }}
