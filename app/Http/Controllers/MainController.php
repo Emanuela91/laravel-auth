@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use Psy\Command\EditCommand;
 use Symfony\Contracts\Service\Attribute\Required;
 
+// serve per collegare la funzione per creare la main_image in create
+use Illuminate\Support\Facades\Storage;
+
 class MainController extends Controller
 {
     // mostrare tutti i data in home 
@@ -44,6 +47,9 @@ class MainController extends Controller
             'release_date' => 'required|date|before:today',
             'repo_link' => 'required|string|unique:projects,repo_link',
         ]);
+        // mette l'immagine dentro uploads in storage in public e viene salvata in DB
+        $img_path = Storage::put('uploads', $data['main_image']);
+        $data['main_image'] = $img_path;
 
         $project = Project::create($data);
         return redirect()->route('project.show', $project);
