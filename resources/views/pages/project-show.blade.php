@@ -6,7 +6,7 @@
         <br>
         Descrizione: {{$project -> description}}
         <br>
-        Data Pubbilcazione: {{$project -> release_date}}
+        Data Pubblicazione: {{$project -> release_date}}
         <br>
         Link Github: {{$project -> repo_link}}
         <br>--------------------- <br>

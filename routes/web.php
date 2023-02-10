@@ -15,7 +15,8 @@ use App\Http\Controllers\MainController;
 |
 */
 
-Route::get('/', [MainController::class, 'home']);
+Route::get('/', [MainController::class, 'home'])
+    ->name('home');
 
 // rotta protetta per my Home 
 Route::get('/myHome', function () {
@@ -26,13 +27,16 @@ Route::get('/myHome', function () {
 Route::get('/project/show/{project}', [MainController::class, 'projectShow'])
     ->name('project.show');
 
-
+// Route::middleware(['auth', 'verified'])
 Route::middleware([])
-    ->name('admin')
+    ->name('admin.')
     ->prefix('admin')
     ->group(function () {
+        // rotta creazione nuovo progetto
         Route::get('/project/create', [MainController::class, 'create'])
             ->name('project.create');
+        Route::post('/project/create', [MainController::class, 'store'])
+            ->name('project.store');
     });
 
 Route::get('/dashboard', function () {
