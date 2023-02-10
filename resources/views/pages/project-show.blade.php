@@ -2,13 +2,13 @@
 
 @section('content')
     <h1>{{$project -> name}}</h1>
-    <li>{{$project -> main_image}}
+    <li><img class="main-img" src="{{asset('storage/' . $project -> main_image)}}" alt="">
         <br>
         Descrizione: {{$project -> description}}
         <br>
         Data Pubblicazione: {{$project -> release_date}}
         <br>
-        Link Github: {{$project -> repo_link}}
+        Link: <a href="{{$project -> repo_link}}">Github</a>
         <br>--------------------- <br>
         @auth
         <a href="{{route('admin.project.edit', $project)}}">Correggi</a>
